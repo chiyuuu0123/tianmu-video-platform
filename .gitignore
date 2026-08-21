@@ -1,0 +1,41 @@
+# Dependencies and build output
+**/node_modules/
+**/target/
+**/dist/
+**/build/
+
+# Environment files and credentials
+.env
+.env.*
+**/*.env
+!.env.example
+!**/.env.example
+!**/*.env.example
+
+# IDE and operating-system files
+**/.idea/
+**/.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+
+# Logs, crash dumps and runtime files
+*.log
+*.pid
+hs_err_pid*
+replay_pid*
+
+# Packaged artifacts and local media
+*.jar
+*.war
+*.zip
+*.7z
+*.tar
+*.gz
+*.mp4
+*.mov
+*.avi
+
+# Local deployment data
+data/
+uploads/

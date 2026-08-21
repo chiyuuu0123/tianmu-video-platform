@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: tianmu
+  profiles:
+    default: local
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      logic-delete-field: isDelete
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+server:
+  port: ${SERVER_PORT:8101}
+  servlet:
+    context-path: /api
+
+netty:
+  port: ${NETTY_PORT:9101}
+
+rocketmq:
+  producer:
+    group: zzz-producer-group
+  consumer:
+    group: zzz-consumer-group
+
+canal:
+  destination: example
+  filter: ".*\\..*"
+  client:
+    heartbeat:
+      interval: 2000
+      timeout: 3000
+    socket:
+      timeout: 6000

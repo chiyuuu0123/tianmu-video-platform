@@ -1,0 +1,54 @@
+server:
+  address: ${SERVER_ADDRESS:0.0.0.0}
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: ${TIANMU_DB_URL}
+    username: ${TIANMU_DB_USERNAME}
+    password: ${TIANMU_DB_PASSWORD}
+    hikari:
+      connection-timeout: ${TIANMU_DB_CONNECTION_TIMEOUT:30000}
+      maximum-pool-size: ${TIANMU_DB_MAX_POOL_SIZE:20}
+      minimum-idle: ${TIANMU_DB_MIN_IDLE:5}
+  data:
+    redis:
+      database: ${TIANMU_REDIS_DATABASE:15}
+      host: ${TIANMU_REDIS_HOST}
+      port: ${TIANMU_REDIS_PORT:6379}
+      timeout: 50000
+      password: ${TIANMU_REDIS_PASSWORD}
+  elasticsearch:
+    uris: ${TIANMU_ES_URIS}
+    username: ${TIANMU_ES_USERNAME}
+    password: ${TIANMU_ES_PASSWORD}
+
+minio:
+  url: ${TIANMU_MINIO_URL}
+  public-url: ${TIANMU_MINIO_PUBLIC_URL}
+  access-key: ${TIANMU_MINIO_ACCESS_KEY}
+  secret-key: ${TIANMU_MINIO_SECRET_KEY}
+  bucket-name: ${TIANMU_MINIO_BUCKET:tianmu-upload}
+
+rocketmq:
+  name-server: ${TIANMU_ROCKETMQ_NAMESERVER}
+
+canal:
+  server:
+    host: ${TIANMU_CANAL_HOST}
+    port: ${TIANMU_CANAL_PORT:11111}
+  username: ${TIANMU_CANAL_USERNAME}
+  password: ${TIANMU_CANAL_PASSWORD}
+
+security:
+  jwt:
+    secret: ${TIANMU_JWT_SECRET}
+    expiration-hours: ${TIANMU_JWT_EXPIRATION_HOURS:48}
+
+app:
+  cors:
+    allowed-origin-patterns: ${TIANMU_CORS_ALLOWED_ORIGIN_PATTERNS}
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.nologging.NoLoggingImpl

@@ -1,0 +1,51 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: ${TIANMU_DB_URL:jdbc:mysql://127.0.0.1:3306/tianmu?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai}
+    username: ${TIANMU_DB_USERNAME:tianmu}
+    password: ${TIANMU_DB_PASSWORD:CHANGE_ME}
+  data:
+    redis:
+      database: ${TIANMU_REDIS_DATABASE:15}
+      host: ${TIANMU_REDIS_HOST:127.0.0.1}
+      port: ${TIANMU_REDIS_PORT:6379}
+      timeout: 50000
+      password: ${TIANMU_REDIS_PASSWORD:CHANGE_ME}
+      lettuce:
+        pool:
+          min-idle: 4
+          max-idle: 8
+          max-active: 8
+          max-wait: 5000ms
+  elasticsearch:
+    uris: ${TIANMU_ES_URIS:http://127.0.0.1:9200}
+    username: ${TIANMU_ES_USERNAME:elastic}
+    password: ${TIANMU_ES_PASSWORD:CHANGE_ME}
+    connection-timeout: 5s
+    socket-timeout: 30s
+
+minio:
+  url: ${TIANMU_MINIO_URL:http://127.0.0.1:9000}
+  public-url: ${TIANMU_MINIO_PUBLIC_URL:http://127.0.0.1:9000}
+  access-key: ${TIANMU_MINIO_ACCESS_KEY:CHANGE_ME}
+  secret-key: ${TIANMU_MINIO_SECRET_KEY:CHANGE_ME}
+  bucket-name: ${TIANMU_MINIO_BUCKET:tianmu-upload}
+
+rocketmq:
+  name-server: ${TIANMU_ROCKETMQ_NAMESERVER:127.0.0.1:9876}
+
+canal:
+  server:
+    host: ${TIANMU_CANAL_HOST:127.0.0.1}
+    port: ${TIANMU_CANAL_PORT:11111}
+  username: ${TIANMU_CANAL_USERNAME:canal}
+  password: ${TIANMU_CANAL_PASSWORD:CHANGE_ME}
+
+security:
+  jwt:
+    secret: ${TIANMU_JWT_SECRET:CHANGE_ME_TO_A_BASE64_ENCODED_32_BYTE_KEY}
+    expiration-hours: ${TIANMU_JWT_EXPIRATION_HOURS:48}
+
+app:
+  cors:
+    allowed-origin-patterns: ${TIANMU_CORS_ALLOWED_ORIGIN_PATTERNS:http://localhost:8080}
